@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main # branch name
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - master
+
 
 jobs:
   deploy-react-to-gh-pages:
@@ -33,7 +38,8 @@ jobs:
 
       # install dependencies
       - name: Install dependencies
-        run: npm i
+        run : npm install react-scripts --save  npm i
+      
 
       # build the react app
       - name: Build
